@@ -163,8 +163,8 @@ and open the template in the editor.
                                                 <tr ng-repeat="obj in page| filter:searchText">
                                                     <td ng-show="visibles.id"><b>{{obj.id}}</b></td>
                                                     <td ng-show="visibles.cantidad"><b>{{obj.cantidad}}</b></td>
-                                                    <td ng-show="visibles.id_pedido"><a href="linea_pedido/{{profile}}/view/{{obj.obj_pedido.id}}">{{obj.obj_pedido.fecha}}</a></td>
-                                                    <td ng-show="visibles.id_producto"><a href="linea_pedido/{{profile}}/view/{{obj.obj_producto.id}}">{{obj.obj_pedido.descripción}}</a></td>
+                                                    <td ng-show="visibles.id_pedido"><a href="pedido/{{profile}}/view/{{obj.obj_pedido.id}}">{{obj.obj_pedido.fecha}}</a></td>
+                                                    <td ng-show="visibles.id_producto"><a href="producto/{{profile}}/view/{{obj.obj_producto.id}}">{{obj.obj_pedido.descripción}}</a></td>
 
                                                     
                                                     

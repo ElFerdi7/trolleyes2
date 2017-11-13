@@ -6,7 +6,7 @@
 
 
 'use strict';
-moduloLineapedido.controller('LineapedidoPList1Controller',
+moduloLineapedido.controller('Linea_pedidoPList1Controller',
         ['$scope', '$routeParams', '$location', 'serverCallService', 'toolService', 'constantService',
             function ($scope, $routeParams, $location, serverCallService, toolService, constantService) {
                 $scope.ob = "linea_pedido";
@@ -40,8 +40,7 @@ moduloLineapedido.controller('LineapedidoPList1Controller',
                 $scope.visibles = {};
                 $scope.visibles.id = true;
                 $scope.visibles.cantidad = true;
-                $scope.visibles.id_pedido = true;
-               
+                $scope.visibles.id_pedido = true;               
                 $scope.visibles.id_producto = true;
                
                
