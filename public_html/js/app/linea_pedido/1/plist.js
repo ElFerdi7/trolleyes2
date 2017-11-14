@@ -27,10 +27,11 @@ moduloLinea_pedido.controller('Linea_pedidoPList1Controller',
                 $scope.objectService = objectService;
                 //---
                 $scope.filterString = null
-                $scope.filterNumber = [{'name': 'id', 'longname': 'Identificador'},{'name': 'cantidad', 'longname': 'Cantidad'},{'name': 'id_pedido', 'longname': 'Pedido'},{'name': 'id_producto', 'longname': 'Producto'},];
+                $scope.filterNumber = [{'name': 'id', 'longname': 'Identificador'},{'name': 'cantidad', 'longname': 'Cantidad'}];
                 $scope.filterDate = null
                 $scope.filterBoolean = null;
-                //$scope.filterTipousuario = {'name':'id_tipousuario','longname':'Tipo de usuario','reference':'tipousuario','description':['descripcion']};
+                $scope.filterPedido = {'name':'id_pedido','longname':'Pedido','reference':'pedido','description':['fecha']};
+                $scope.filterProducto = {'name':'id_producto','longname':'Producto','reference':'producto','description':['descripcion']};
                 
                 //---
                 $scope.visibles = {};
