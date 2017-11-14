@@ -7,8 +7,8 @@
 
 'use strict';
 moduloProducto.controller('ProductoView1Controller',
-        ['$scope', '$routeParams', 'serverCallService', '$location', 'sessionService', 'constantService',
-            function ($scope, $routeParams, serverCallService, $location, sessionService, constantService) {
+        ['$scope', '$routeParams', 'serverCallService', '$location', 'sessionService', 'constantService', 'objectService',
+            function ($scope, $routeParams, serverCallService, $location, sessionService, constantService, objectService) {
                 $scope.ob = "producto";
                 $scope.op = "view";
                 $scope.profile = 1;
@@ -17,6 +17,8 @@ moduloProducto.controller('ProductoView1Controller',
                 $scope.debugging = constantService.debugging();
                 $scope.url = $scope.ob + '/' + $scope.profile + '/' + $scope.op;
                 //---
+                
+                $scope.objectService = objectService;
                 $scope.id = $routeParams.id;
                 //---
                 serverCallService.getOne($scope.ob, $scope.id).then(function (response) {

@@ -27,8 +27,8 @@
  */
 'use strict';
 moduloPedido.controller('PedidoView1Controller',
-        ['$scope', '$routeParams', 'serverCallService', '$location', 'sessionService', 'constantService',
-            function ($scope, $routeParams, serverCallService, $location, sessionService, constantService) {
+        ['$scope', '$routeParams', 'serverCallService', '$location', 'sessionService', 'constantService',  'objectService',
+            function ($scope, $routeParams, serverCallService, $location, sessionService, constantService, objectService) {
                 $scope.ob = "pedido";
                 $scope.op = "view";
                 $scope.profile = 1;
@@ -36,6 +36,8 @@ moduloPedido.controller('PedidoView1Controller',
                 $scope.status = null;
                 $scope.debugging = constantService.debugging();
                 $scope.url = $scope.ob + '/' + $scope.profile + '/' + $scope.op;
+                
+                $scope.objectService = objectService;
                 //---
                 $scope.id = $routeParams.id;
                 //---
