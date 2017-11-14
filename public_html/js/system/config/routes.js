@@ -54,7 +54,7 @@ trolleyes.config(['$routeProvider', function ($routeProvider) {
         //------------
         $routeProvider.when('/tipousuario/1/plist/:page?/:rpp?', {templateUrl: 'js/app/tipousuario/1/plist.html', controller: 'TipousuarioPList1Controller', resolve: {auth: authenticationAdministratorPromise}});                
         $routeProvider.when('/tipousuario/1/view/:id', {templateUrl: 'js/app/tipousuario/1/view.html', controller: 'TipousuarioView1Controller', resolve: {auth: authenticationAdministratorPromise}});
-        $routeProvider.when('/tiopousuario/1/edit/:id', {templateUrl: 'js/app/tiopousuario/1/edit.html', controller: 'TipousuarioEdit1Controller', resolve: {auth: authenticationAdministratorPromise}});
+        $routeProvider.when('/tipousuario/1/edit/:id', {templateUrl: 'js/app/tipousuario/1/edit.html', controller: 'TipousuarioEdit1Controller', resolve: {auth: authenticationAdministratorPromise}});
 
         //$routeProvider.when('/tipousuario/1/selection/:page?/:rpp?', {templateUrl: 'js/app/tipousuario/1/selection.html', controller: 'TipousuarioSelection1Controller', resolve: {auth: authenticationAdministratorPromise}});                
         //--
