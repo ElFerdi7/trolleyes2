@@ -6,9 +6,9 @@
 
 
 'use strict';
-moduloLineapedido.controller('Linea_pedidoPList1Controller',
-        ['$scope', '$routeParams', '$location', 'serverCallService', 'toolService', 'constantService',
-            function ($scope, $routeParams, $location, serverCallService, toolService, constantService) {
+moduloLinea_pedido.controller('Linea_pedidoPList1Controller',
+        ['$scope', '$routeParams', '$location', 'serverCallService', 'toolService', 'constantService', 'objectService',
+            function ($scope, $routeParams, $location, serverCallService, toolService, constantService, objectService) {
                 $scope.ob = "linea_pedido";
                 $scope.op = "plist";
                 $scope.profile = 1;
@@ -23,27 +23,22 @@ moduloLineapedido.controller('Linea_pedidoPList1Controller',
                 //---
                 $scope.orderParams = toolService.checkEmptyString($routeParams.order);
                 $scope.filterParams = toolService.checkEmptyString($routeParams.filter);
-                //---      
-                $scope.filter = {};
-                $scope.filter.text = {};
-                $scope.filter.number = {};
-                $scope.filter.date = {};
-                $scope.filter.boolean = {};
-                $scope.filter.foreign = {};
-                $scope.filter.text.field = "";
-                $scope.filter.text.operator = "";
-                $scope.filter.text.value = "";
-                $scope.filter.number.field = "";
-                $scope.filter.number.operator = "";
-                $scope.filter.number.value = "";
+                //---
+                $scope.objectService = objectService;
+                //---
+                $scope.filterString = null
+                $scope.filterNumber = [{'name': 'id', 'longname': 'Identificador'},{'name': 'cantidad', 'longname': 'Cantidad'},{'name': 'id_pedido', 'longname': 'Pedido'},{'name': 'id_producto', 'longname': 'Producto'},];
+                $scope.filterDate = null
+                $scope.filterBoolean = null;
+                //$scope.filterTipousuario = {'name':'id_tipousuario','longname':'Tipo de usuario','reference':'tipousuario','description':['descripcion']};
+                
                 //---
                 $scope.visibles = {};
                 $scope.visibles.id = true;
                 $scope.visibles.cantidad = true;
-                $scope.visibles.id_pedido = true;               
+                $scope.visibles.id_pedido = true;
                 $scope.visibles.id_producto = true;
-               
-               
+             
                 //---
                 function getDataFromServer() {
                     serverCallService.getCount($scope.ob, $scope.filterParams).then(function (response) {
@@ -67,29 +62,6 @@ moduloLineapedido.controller('Linea_pedidoPList1Controller',
                         $scope.status = "Error en la recepción de datos del servidor";
                     });
                 }
-                $scope.dofilter = function (filterType) {
-                    if (filterType == 0) {
-                        if ($scope.filter.text.field != "" && $scope.filter.text.operator != "" && $scope.filter.text.value != "") {
-                            var newFilter = $scope.filterParams + "+and," + $scope.filter.text.field + "," + $scope.filter.text.operator + "," + $scope.filter.text.value;
-                            if ($scope.orderParams) {
-                                $location.path($scope.url + '/' + $scope.numpage + '/' + $scope.rpp).search('filter', newFilter).search('order', $scope.orderParams);
-                            } else {
-                                $location.path($scope.url + '/' + $scope.numpage + '/' + $scope.rpp).search('filter', newFilter);
-                            }
-                        }
-                    }
-                    if (filterType == 1) {
-                        if ($scope.filter.number.field != "" && $scope.filter.number.operator != "" && $scope.filter.number.value != "") {
-                            var newFilter = $scope.filterParams + "+and," + $scope.filter.number.field + "," + $scope.filter.number.operator + "," + $scope.filter.number.value;
-                            if ($scope.orderParams) {
-                                $location.path($scope.ob + '/' + $scope.profile + '/' + $scope.op + '/' + $scope.numpage + '/' + $scope.rpp).search('filter', newFilter).search('order', $scope.orderParams);
-                            } else {
-                                $location.path($scope.ob + '/' + $scope.profile + '/' + $scope.op + '/' + $scope.numpage + '/' + $scope.rpp).search('filter', newFilter);
-                            }
-                        }
-                    }
-                    return false;
-                };
                 $scope.doorder = function (orderField, ascDesc) {
                     $location.url($scope.url + '/' + $scope.numpage + '/' + $scope.rpp).search('filter', $scope.filterParams).search('order', orderField + ',' + ascDesc);
                     return false;
