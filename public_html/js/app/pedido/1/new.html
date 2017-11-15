@@ -37,7 +37,7 @@ and open the template in the editor.
                                 </div>
                             </div>
                             <!------------------------------------------------->
-                           <div class="form-group" id="fecha-group"
+                            <div class="form-group" id="fecha-group"
                                  ng-class="{'has-error': (outerForm.fecha.$error.required ||
                                                      outerForm.fecha.$error.valid)
                                                      && !outerForm.fecha.$pristine}">
@@ -50,7 +50,7 @@ and open the template in the editor.
                                         required="true"
                                         model="bean.fecha"
                                         form="outerForm">
-                                        </date-time-picker>
+                                    </date-time-picker>
                                     <span class="help-block" ng-if="!outerForm.fecha.$pristine && outerForm.fecha.$error.required">El campo es obligatorio</span>
                                     <span class="help-block" ng-if="!outerForm.fecha.$pristine && outerForm.fecha.$error.valid">El campo no tiene formato adecuado: Debe ser una fecha y hora válidas</span>
                                 </div>
@@ -69,7 +69,7 @@ and open the template in the editor.
                                            class="form-control"
                                            id="iva"
                                            name="iva"
-                                           ng-pattern=""
+                                           ng-pattern="/^[0-9]+$/"
                                            placeholder="Iva"
                                            maxlength="100"
                                            ng-required="true"
@@ -79,8 +79,22 @@ and open the template in the editor.
                                 </div>
                             </div>
                             <!------------------------------------------------->
-                           <!-- tiene iva quitado -->
-                          
+                            <div class="form-group" id="tiene_iva-group"
+                                 ng-class="{'has-error':(outerForm.tiene_iva.$error.required && !outerForm.tiene_iva.$pristine)}">
+                                <label class="control-label col-sm-2" for="tiene_iva">
+                                    <span ng-show="true">*</span>
+                                    ¿Tiene IVA?
+                                </label> 
+                                <div class="control col-sm-3">
+                                    <input  
+                                        ng-model="bean.tiene_iva" 
+                                        type="checkbox" 
+                                        id="tiene_iva" 
+                                        name="tiene_iva">
+                                    <span class="help-block" ng-if="!outerForm.tiene_iva.$pristine && outerForm.tiene_iva.$error.required">El campo es obligatorio</span>
+                                </div>
+                            </div>
+
                             <!------------------------------------------------->
                             <div class="form-group" id="obj_usuario-group"
                                  ng-class="{'has-error': outerForm.obj_usuario.$error.exists}">
@@ -130,7 +144,7 @@ and open the template in the editor.
                             </div>
                             <div class="control-group text-right">
                                 <div class="controls">
-                                    
+
                                     <a class="btn btn-info" ng-href="{{ob}}/{{profile}}/plist">Ir al listado de {{ob}}</a>
                                     <a class="btn btn-default" ng-click="back()">Volver</a>
                                     <a class="btn btn-default" href="home">Cerrar</a>
