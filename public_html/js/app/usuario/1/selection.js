@@ -25,11 +25,21 @@ moduloUsuario.controller('UsuarioSelection1Controller',
 
                 $scope.visibles = {};
                 $scope.visibles.id = true;
+                $scope.visibles.dni = true;
                 $scope.visibles.nombre = true;
-                
-                $scope.filterString = [{'name': 'nombre', 'longname': 'Nombre'}];
+                $scope.visibles.primer_apellido = true;
+                $scope.visibles.segundo_apellido = true;
+                $scope.visibles.login = true;
+                $scope.visibles.email = true;
+                $scope.visibles.fecha_nacimiento = false;
+                $scope.visibles.id_tipousuario = true;
+
+                $scope.filterString = [{'name': 'dni', 'longname': 'DNI'}, {'name': 'nombre', 'longname': 'Nombre'}, {'name': 'primer_apellido', 'longname': 'Primer apellido'}, {'name': 'segundo_apellido', 'longname': 'Segundo apellido'}, {'name': 'login', 'longname': 'Login'}];
                 $scope.filterNumber = [{'name': 'id', 'longname': 'Identificador'}];
-                
+                $scope.filterDate = [{'name': 'fecha_nacimiento', 'longname': 'Fecha de nacimiento'}];
+                $scope.filterBoolean = null;
+                $scope.filterTipousuario = {'name': 'id_tipousuario', 'longname': 'Tipo de usuario', 'reference': 'tipousuario', 'description': ['descripcion']};
+
                 $scope.objectService = objectService;
 
                 $scope.closeForm = function (id) {
@@ -91,10 +101,10 @@ moduloUsuario.controller('UsuarioSelection1Controller',
                 }
 
 
-               
-                
-                
-                
+
+
+
+
                 $scope.doorder = function (orderField, ascDesc) {
                     $scope.orderParams = orderField + ',' + ascDesc;
                     getData();
