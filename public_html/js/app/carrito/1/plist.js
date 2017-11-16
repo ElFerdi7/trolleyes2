@@ -38,27 +38,24 @@ moduloCarrito.controller('CarritoPList1Controller',
                 
              
                 //---
-                function getDataFromServer() {
-                    serverCallService.list($scope.ob, $scope.filterParams).then(function (response) {
-                        if (response.status == 200) {
-                            $scope.registers = response.data.json;
+                
+                    serverCallService.list($scope.ob).then(function (response) {
+                       if (response.status == 200) {
+                        if (response.data.status == 200) {
                             
-                            return serverCallService.list($scope.ob);
+                            $scope.bean = response.data.json;
                         } else {
                             $scope.status = "Error en la recepción de datos del servidor";
                         }
-                    }).then(function (response) {
-                        if (response.status == 200) {
-                            $scope.page = response.data.json;
-                        } else {
-                            $scope.status = "Error en la recepción de datos del servidor";
-                        }
-                    }).catch(function (data) {
+                    } else {
                         $scope.status = "Error en la recepción de datos del servidor";
-                    });
-                }
+                    }
+                }).catch(function (data) {
+                    $scope.status = "Error en la recepción de datos del servidor";
+                });
+                
                 $scope.doorder = function (orderField, ascDesc) {
-                    $location.url($scope.url);
+                    $location.url($scope.url + '/' + $scope.numpage + '/' + $scope.rpp).search('filter', $scope.filterParams).search('order', orderField + ',' + ascDesc);
                     return false;
                 };
                 $scope.close = function () {
