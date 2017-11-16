@@ -56,6 +56,7 @@
                         <li ng-class="{ 'active': mn.isActive('/producto/1/plist/')}"><a href="producto/1/plist"> <i ng-class="mn.object_info.getIcon('producto')"></i> {{mn.object_info.getName("producto")}}</a></li>
                         <li ng-class="{ 'active': mn.isActive('/linea_pedido/1/plist/')}"><a href="linea_pedido/1/plist"> <i ng-class="mn.object_info.getIcon('linea_pedido')"></i> {{mn.object_info.getName("linea_pedido")}}</a></li>
 
+
                     </ul>
                 </li>
                 <!-- Coordinación ------------------------------------------- -->
@@ -124,6 +125,8 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <!-- <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li> -->
+                        <li ng-class="{ 'active': mn.isActive('/carrito/1/plist')}"><a href="carrito/1/plist"> <i ng-class="mn.object_info.getIcon('carrito')"></i> {{mn.object_info.getName("carrito")}}</a></li>
+
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-user"></i>
