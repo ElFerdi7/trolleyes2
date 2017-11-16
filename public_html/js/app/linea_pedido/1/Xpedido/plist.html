@@ -11,7 +11,7 @@ and open the template in the editor.
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <header ob="ob" title="'Listado de ' + objectService.getName(ob)"></header>
+                        <header ob="ob" title="'Listado de ' + objectService.getName(ob) + ' para el pedido de id ' + pedidobean.id +' e iva ' + pedidobean.iva"></header>
                     </div>
                     <div class="panel-body">
                         <div class="row">
@@ -73,18 +73,15 @@ and open the template in the editor.
                                                         <label class="control-label col-sm-3" for="filterSelection">
                                                             Selecciona filtro:
                                                         </label>
-                                                        <select class="navbar-form navbar-left" ng-model="filterType" convert-to-number id="filterSelection">
-                                                            
-                                                            <option value="1">Filtrar por valor</option>
-                                                            <option value="2">Filtrar por pedido</option>
-                                                           <option value="3">Filtrar por producto</option>
-                                                                                                                  
+                                                        <select class="navbar-form navbar-left" ng-model="filterType" convert-to-number id="filterSelection">                                                            
+                                                            <option value="0">Filtrar por número</option>
+                                                            <option value="1">Filtrar por pedido</option>
+                                                            <option value="2">Filtrar por producto</option>                                                                
                                                         </select>
                                                     </form>
                                                 </div>
-                                                <div class="col-md-7">
-                                                   
-                                                    <div ng-show="filterType == 1">
+                                                <div class="col-md-7">                                          
+                                                    <div ng-show="filterType == 0">
                                                         <cplistfilterbynumber
                                                             url="url"
                                                             fields="filterNumber"
@@ -95,8 +92,8 @@ and open the template in the editor.
                                                         </cplistfilterbynumber>
                                                     </div>
                                                     <p></p>
-                                                   
-                                                    <div ng-show="filterType == 2">
+                                       
+                                                    <div ng-show="filterType == 1">
                                                         <cplistfilterbyforeign
                                                             url="url"
                                                             field="filterPedido"
@@ -108,8 +105,8 @@ and open the template in the editor.
                                                         </cplistfilterbyforeign>
                                                     </div>
                                                     <p></p>
-                                                   
-                                                    <div ng-show="filterType == 3">
+                                       
+                                                    <div ng-show="filterType == 2">
                                                         <cplistfilterbyforeign
                                                             url="url"
                                                             field="filterProducto"
@@ -138,7 +135,7 @@ and open the template in the editor.
                                             <div class="row">
                                                 <div class="col-md-12 text-center">
                                                     <p><br>
-                                                        <a class="btn btn-primary" href="{{ob}}/{{profile}}/new">Crear un nuevo {{ob}}</a>
+                                                        <a class="btn btn-primary" href="{{ob}}/{{profile}}/newXpedido/{{xid}}/">Crear un nuevo {{ob}} para el pedido de id {{pedidobean.id}}</a>
                                                     </p>
                                                 </div>
                                             </div>
@@ -150,10 +147,11 @@ and open the template in the editor.
                                         <div class="panel-heading">
                                             <div class="text-center">
                                                 <ul class="list-inline">
-                                                    <li><input type="checkbox" ng-model="visibles.id" ng-checked="visibles.id">Ident.</li>
+                                                    <li><input type="checkbox" ng-model="visibles.id" ng-checked="visibles.id">Identificador</li>
                                                     <li><input type="checkbox" ng-model="visibles.cantidad" ng-checked="visibles.cantidad">Cantidad</li>
                                                     <li><input type="checkbox" ng-model="visibles.id_pedido" ng-checked="visibles.id_pedido" >Pedido</li>
                                                     <li><input type="checkbox" ng-model="visibles.id_producto" ng-checked="visibles.id_producto" >Producto</li>
+
                                                     
                                                 </ul>
                                             </div>
@@ -180,27 +178,24 @@ and open the template in the editor.
                                                     <a ng-click="doorder('id_producto', 'asc')"><i class="glyphicon glyphicon-arrow-up"></i></a>
                                                     <a ng-click="doorder('id_producto', 'desc')"><i class="glyphicon glyphicon-arrow-down"></i></a>
                                                 </th>
-                                                
+                                                                                            
                                                 <th  class="text-center">Acciones</th>
                                             </tr>
                                             <tbody>
                                                 <tr ng-repeat="obj in page| filter:searchText">
                                                     <td ng-show="visibles.id"><b>{{obj.id}}</b></td>
                                                     <td ng-show="visibles.cantidad"><b>{{obj.cantidad}}</b></td>
-                                    
                                                     <td ng-show="visibles.id_pedido" class="text-center">
-                                                        <a href="pedido/{{profile}}/view/{{obj.obj_pedido.id}}">{{obj.obj_pedido.fecha}}</a>
+                                                        <a href="pedido/{{profile}}/view/{{obj.obj_pedido.id}}">{{obj.obj_pedido.iva}}</a>
                                                     </td>
                                                     <td ng-show="visibles.id_producto" class="text-center">
                                                         <a href="producto/{{profile}}/view/{{obj.obj_producto.id}}">{{obj.obj_producto.descripcion}}</a>
-                                                    </td>
+                                                    </td>  
+                                                                                                     
                                                     <td>
                                                         <div class="btn-toolbar" role="toolbar">
                                                             <div class="btn-group">
                                                                 <actions id="obj.id" name="ob"></actions>
-                                                             <a class="btn btn-default btn-xs" title="Pedidos" href="linea_pedido/{{profile}}/plistXpedido/{{obj.id}}/1/10">
-                                                                    <span ng-class="objectService.getIcon('pedido')"></span>
-                                                                </a>
                                                             </div>
                                                         </div>
                                                     </td>
