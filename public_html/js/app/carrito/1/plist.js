@@ -61,6 +61,6 @@ moduloCarrito.controller('CarritoPList1Controller',
                 $scope.close = function () {
                     $location.path('/home');
                 };
-                getDataFromServer();
+                
             }
         ]);
