@@ -126,7 +126,7 @@ and open the template in the editor.
                                         <div class="panel-heading">
                                             <div class="text-center">
                                                 <ul class="list-inline">
-                                                    
+                                                    <li><input type="checkbox" ng-model="visibles.id" ng-checked="visibles.id">Id</li>
                                                     <li><input type="checkbox" ng-model="visibles.cantidad" ng-checked="visibles.cantidad">Cantidad</li>
                                                     <li><input type="checkbox" ng-model="visibles.producto" ng-checked="visibles.producto" >Producto</li>
                                                     
@@ -135,7 +135,11 @@ and open the template in the editor.
                                         </div>
                                         <table class="table table-responsive table-bordered table-hover table-striped table-condensed dataTable no-footer">
                                             <tr>
-                                               
+                                                <th ng-show="visibles.id" class="text-center">
+                                                    <label>Id</label><br/>
+                                                    <a ng-click="doorder('id', 'asc')"><i class="glyphicon glyphicon-arrow-up"></i></a>
+                                                    <a ng-click="doorder('id', 'desc')"><i class="glyphicon glyphicon-arrow-down"></i></a>
+                                                </th>
                                                 <th ng-show="visibles.cantidad" class="text-center">
                                                     <label>Cantidad</label><br/>
                                                     <a ng-click="doorder('cantidad', 'asc')"><i class="glyphicon glyphicon-arrow-up"></i></a>
@@ -153,8 +157,8 @@ and open the template in the editor.
                                             <tbody>
                                                 <tr ng-repeat="obj in carritobean| filter:searchText">
                                                     
-                                                    <td ng-show="visibles.cantidad"><b>{{obj.cantidad}}</b></td>
-                                    
+                                                    <td ng-show="visibles.id"><b>{{obj.id}}</b></td>
+                                                    <td ng-show="visibles.cantidad"><b>{{obj.cantidad}}</b></td>   
                                                     <td ng-show="visibles.producto" class="text-center">
                                                         <a href="producto/{{profile}}/view/{{obj.producto.id}}">{{obj.producto.descripcion}}</a>
                                                     </td>

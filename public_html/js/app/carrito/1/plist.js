@@ -32,6 +32,7 @@ moduloCarrito.controller('CarritoPList1Controller',
                
                 //---
                 $scope.visibles = {};
+               
                 $scope.visibles.id = true;
                 $scope.visibles.cantidad = true;
                 $scope.visibles.producto = true;
