@@ -26,33 +26,34 @@ moduloCarrito.controller('CarritoPList1Controller',
                 //---
                 $scope.objectService = objectService;
                 //---
-                
-                $scope.filterNumber = [{'name': 'id', 'longname': 'Identificador'},{'name': 'cantidad', 'longname': 'Cantidad'}];
-               
-               
+
+                $scope.filterNumber = [{'name': 'id_producto', 'longname': 'Identificador'}, {'name': 'cantidad', 'longname': 'Cantidad'}];
+
+
                 //---
                 $scope.visibles = {};
-               
-                $scope.visibles.id = true;
+                
+              
+
+                $scope.visibles.id_producto = true;
                 $scope.visibles.cantidad = true;
                 $scope.visibles.producto = true;
-                
-             
+
                 //---
-                
-                    serverCallService.list($scope.ob).then(function (response) {
-                       if (response.status == 200) {
-                       
-                            
-                            $scope.carritobean = response.data.json;
-                        
+
+                serverCallService.list($scope.ob).then(function (response) {
+                    if (response.status == 200) {
+
+
+                        $scope.carritobean = response.data.json;
+
                     } else {
                         $scope.status = "Error en la recepción de datos del servidor";
                     }
                 }).catch(function (data) {
                     $scope.status = "Error en la recepción de datos del servidor";
                 });
-                
+
                 $scope.doorder = function (orderField, ascDesc) {
                     $location.url($scope.url + '/' + $scope.numpage + '/' + $scope.rpp).search('filter', $scope.filterParams).search('order', orderField + ',' + ascDesc);
                     return false;
@@ -60,6 +61,6 @@ moduloCarrito.controller('CarritoPList1Controller',
                 $scope.close = function () {
                     $location.path('/home');
                 };
-                
+
             }
         ]);
