@@ -41,12 +41,10 @@ moduloCarrito.controller('CarritoPList1Controller',
                 
                     serverCallService.list($scope.ob).then(function (response) {
                        if (response.status == 200) {
-                        if (response.data.status == 200) {
+                       
                             
-                            $scope.bean = response.data.json;
-                        } else {
-                            $scope.status = "Error en la recepción de datos del servidor";
-                        }
+                            $scope.carritobean = response.data.json;
+                        
                     } else {
                         $scope.status = "Error en la recepción de datos del servidor";
                     }
