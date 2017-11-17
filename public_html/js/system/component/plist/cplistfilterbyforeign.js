@@ -9,6 +9,7 @@ moduloDirectivas.component('cplistfilterbyforeign', {
         orderparams: '<',
         filterparams: '<',
         profile: '<'
+        
     },
     templateUrl: 'js/system/component/plist/cplistfilterbyforeign.html',
     controllerAs: 'filterbyforeign',
