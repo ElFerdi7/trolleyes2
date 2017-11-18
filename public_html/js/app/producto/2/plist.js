@@ -39,6 +39,7 @@ moduloProducto.controller('ProductoPList2Controller',
                 //---
                 $scope.visibles = {};
                 $scope.visibles.id = true;
+                $scope.visibles.imagen = true;
                 $scope.visibles.codigo = true;
                 $scope.visibles.existencias = true;
                 $scope.visibles.precio = true;
