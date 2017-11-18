@@ -33,7 +33,7 @@ moduloProducto.controller('ProductoSelection1Controller',
                 
                
                 $scope.filterNumber = [{'name': 'id', 'longname': 'Identificador'},{'name': 'existencias', 'longname': 'Existencias'},{'name': 'precio', 'longname': 'Precio'}];
-                $scope.filterString = [{'name': 'codigo', 'longname': 'Codigo'},{'name': 'descripcion', 'longname': 'Descripcion'}]
+                $scope.filterString = [{'name': 'codigo', 'longname': 'Codigo'},{'name': 'descripcion', 'longname': 'Descripcion'}];
                 
                 $scope.objectService = objectService;
 
