@@ -94,7 +94,8 @@ and open the template in the editor.
                                         reference="'producto'"
                                         profile="profile"
                                         description="['descripcion']"
-                                        required="true">
+                                        required="true"
+                                         disabled="true">
                                     </foreign-key>
                                     <span class="help-block" ng-if="!outerForm.obj_producto.$pristine && outerForm.obj_producto.$error.required">El campo es obligatorio</span>
                                     <span class="help-block" ng-if="!outerForm.obj_producto.$pristine && outerForm.obj_producto.$error.exists">El tipo de usuario no existe</span>
