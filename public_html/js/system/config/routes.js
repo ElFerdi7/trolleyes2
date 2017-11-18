@@ -99,9 +99,11 @@ trolleyes.config(['$routeProvider', function ($routeProvider) {
          $routeProvider.when('/linea_pedido/2/view/:id', {templateUrl: 'js/app/linea_pedido/2/view.html', controller: 'Linea_pedidoView2Controller', resolve: {auth: authenticationClientPromise}});
       
         
-        //--------------------------
+        //-------Carrito administrador-------------------
          $routeProvider.when('/carrito/1/plist/:page?/:rpp?', {templateUrl: 'js/app/carrito/1/plist.html', controller: 'CarritoPList1Controller', resolve: {auth: authenticationAdministratorPromise}}); 
          $routeProvider.when('/carrito/1/remove/:id', {templateUrl: 'js/app/carrito/1/remove.html', controller: 'CarritoRemove1Controller', resolve: {auth: authenticationAdministratorPromise}});
+        //-------Carrito cliente-------------------
+         $routeProvider.when('/carrito/2/plist/:page?/:rpp?', {templateUrl: 'js/app/carrito/2/plist.html', controller: 'CarritoPList2Controller', resolve: {auth: authenticationClientPromise}}); 
 
 
         $routeProvider.otherwise({redirectTo: '/'});
