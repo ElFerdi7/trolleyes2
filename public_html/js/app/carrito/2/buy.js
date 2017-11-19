@@ -16,12 +16,10 @@ moduloCarrito.controller('CarritoBuy2Controller',
                 $scope.debugging = constantService.debugging();
                 $scope.url = $scope.ob + '/' + $scope.profile + '/' + $scope.op;
                 //----
-                $scope.numpage = toolService.checkDefault(1, $routeParams.page);
-                $scope.rpp = toolService.checkDefault(10, $routeParams.rpp);
+               
                 $scope.neighbourhood = constantService.getGlobalNeighbourhood();
                 //---
-                $scope.orderParams = toolService.checkEmptyString($routeParams.order);
-                $scope.filterParams = toolService.checkEmptyString($routeParams.filter);
+               
                 //---
                 $scope.objectService = objectService;
                 //---
@@ -31,11 +29,8 @@ moduloCarrito.controller('CarritoBuy2Controller',
                     serverCallService.buy($scope.ob).then(function (response) {
                         if (response.status == 200) {
                             if (response.data.status == 200) {
-                                if (response.data.json) {
-                                    $scope.status = "Gracias por su compra.";
-                                } else {
-                                    $scope.status = "Error en la compra de datos del servidor";
-                                }
+                                
+                                $scope.status = "Gracias por su compra";
                             } else {
                                 $scope.status = "Error en la recepción de datos del servidor 1";
                             }
