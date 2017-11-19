@@ -26,7 +26,7 @@ moduloCarrito.controller('CarritoRemove2Controller',
                     if (response.status == 200) {
                         if (response.data.status == 200) {
                             $scope.status = null;
-                            $scope.carritobean = response.data.json;
+                            $scope.bean = response.data.json;
                         } else {
                             $scope.status = "Error en la recepción de datos del servidor 1";
                         }
@@ -41,7 +41,6 @@ moduloCarrito.controller('CarritoRemove2Controller',
                         if (response.status == 200) {
                             if (response.data.status == 200) {
                                 if (response.data.json == 1) {
-                                    
                                     $scope.status = "El registro con id=" + $scope.id + " se ha eliminado.";
                                 } else {
                                     $scope.status = "Error en el borrado de datos del servidor 4";

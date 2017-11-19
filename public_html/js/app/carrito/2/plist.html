@@ -186,7 +186,7 @@ and open the template in the editor.
                                             </tr>
                                             <tbody>
                                                 <tr ng-repeat="obj in carritobean| filter:searchText">
-                                                    <td ng-show="visibles.id_producto"><b>{{obj.id_producto}}</b></td>
+                                                    <td ng-show="visibles.id_producto"><b>{{obj.producto.id}}</b></td>
                                                     <td ng-show="visibles.cantidad"><b>{{obj.cantidad}}</b></td>
 
                                                     <td ng-show="visibles.producto" class="text-center">
