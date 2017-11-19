@@ -51,6 +51,10 @@ moduloServicios.factory('objectService', function () {
                 case "anyadir":
                     return 'fa fa-shopping-basket';
                     break;
+                    
+                case "vista":
+                return 'fa fa-eye';
+                break;
                 default:
                     return null;
             }

@@ -96,10 +96,10 @@ and open the template in the editor.
                                                             orderparams="orderParams"
                                                             filterparams="filterParams">
                                                         </cplistfilterbynumber>
-                                                            
+
                                                     </div>
-                                                  
-                                                    
+
+
                                                 </div>
                                             </div>
                                         </div>
@@ -136,7 +136,7 @@ and open the template in the editor.
                                                     <li><input type="checkbox" ng-model="visibles.existencias" ng-checked="visibles.existencias" >Existencias</li>
                                                     <li><input type="checkbox" ng-model="visibles.precio" ng-checked="visibles.precio" >Precio</li>
                                                     <li><input type="checkbox" ng-model="visibles.descripcion" ng-checked="visibles.descripcion" >Descripcion</li>
-                                               
+
                                                 </ul>
                                             </div>
                                         </div>
@@ -147,7 +147,7 @@ and open the template in the editor.
                                                     <a ng-click="doorder('id', 'asc')"><i class="glyphicon glyphicon-arrow-up"></i></a>
                                                     <a ng-click="doorder('id', 'desc')"><i class="glyphicon glyphicon-arrow-down"></i></a>
                                                 </th>
-                                                 <th ng-show="visibles.imagen" class="text-center">
+                                                <th ng-show="visibles.imagen" class="text-center">
                                                     <label>Imagen</label><br/>
                                                     <a ng-click="doorder('imagen', 'asc')"><i class="glyphicon glyphicon-arrow-up"></i></a>
                                                     <a ng-click="doorder('imagen', 'desc')"><i class="glyphicon glyphicon-arrow-down"></i></a>
@@ -172,7 +172,7 @@ and open the template in the editor.
                                                     <a ng-click="doorder('descripcion', 'asc')"><i class="glyphicon glyphicon-arrow-up"></i></a>
                                                     <a ng-click="doorder('descripcion', 'desc')"><i class="glyphicon glyphicon-arrow-down"></i></a>
                                                 </th>
-                                                
+
                                                 <th class="text-center">Acciones</th>
                                             </tr>
                                             <tbody>
@@ -181,13 +181,15 @@ and open the template in the editor.
                                                     <td ng-show="visibles.imagen"><b><img src="{{obj.imagen}}" alt="" width="250" height="150"></b></td>
                                                     <td ng-show="visibles.codigo"><b>{{obj.codigo}}</b></td>
                                                     <td ng-show="visibles.existencias">{{obj.existencias}}</td>
-                                                    <td ng-show="visibles.precio">{{obj.precio | currency : "€" : 2}}</td>
+                                                    <td ng-show="visibles.precio">{{obj.precio| currency : "€" : 2}}</td>
                                                     <td ng-show="visibles.descripcion">{{obj.descripcion}}</td>
 
                                                     <td>
                                                         <div class="btn-toolbar" role="toolbar">
                                                             <div class="btn-group">
-                                                                <actions id="obj.id" name="ob"></actions>
+                                                               <a class="btn btn-default btn-xs" title="View" href="producto/{{profile}}/view/{{obj.id}}">
+                                                                    <span ng-class="objectService.getIcon('vista')"></span>
+                                                                </a>
                                                                 <a class="btn btn-default btn-xs" title="Pedidos" href="linea_pedido/{{profile}}/plistXproducto/{{obj.id}}/1/10">
                                                                     <span ng-class="objectService.getIcon('pedido')"></span>
                                                                 </a>
