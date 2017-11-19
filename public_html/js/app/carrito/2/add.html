@@ -39,7 +39,7 @@ and open the template in the editor.
                                                class="form-control"
                                                id="cantidad"
                                                name="cantidad"
-                                               ng-pattern="/^[0-9]+$/"
+                                               ng-pattern=""
                                                placeholder="Cantidad"
                                                maxlength="100"
                                                ng-required="true"
@@ -50,7 +50,7 @@ and open the template in the editor.
                                 </div>
                                 <div class="control-group text-right">
                                     <div class="controls">
-                                        <a class="btn btn-primary" ng-click="add()" ng-disabled="!outerForm.$valid">Añadir</a>
+                                        <a class="btn btn-primary" ng-click="add()" ng-disabled="outerForm.$valid">Añadir</a>
                                         <a class="btn btn-default" ng-click="back()">Volver</a>
                                         <a class="btn btn-default" href="home">Cerrar</a>
                                     </div>

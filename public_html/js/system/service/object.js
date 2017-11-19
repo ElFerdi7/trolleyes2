@@ -48,6 +48,9 @@ moduloServicios.factory('objectService', function () {
                 case "carrito":
                     return 'fa fa-cart-plus';
                     break;
+                case "anyadir":
+                    return 'fa fa-shopping-basket';
+                    break;
                 default:
                     return null;
             }
