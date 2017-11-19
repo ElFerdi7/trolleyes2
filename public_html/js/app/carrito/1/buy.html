@@ -11,7 +11,7 @@ and open the template in the editor.
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <header ob="ob" title="'Vaciar ' + objectService.getName(ob)"></header>
+                        <header ob="ob" title="'Compra de ' + objectService.getName(ob)"></header>
                     </div>
                     <div class="panel-body">
                         <div class="row-fluid" ng-if="status">
@@ -29,8 +29,8 @@ and open the template in the editor.
                              
                                 <div class="control-group text-right">
                                     <div class="controls">
-                                        <div>¿Está seguro de que desea vaciar el carro?</div>
-                                        <a class="btn btn-danger" ng-click="empty()">Si</a>
+                                        <div>¿Está seguro de que desea comprar los productos?</div>
+                                        <a class="btn btn-primary" ng-click="buy()">Si</a>
                                         <a class="btn btn-default" ng-click="back()">No</a>
                                     </div>
                                 </div>
